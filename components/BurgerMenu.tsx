@@ -70,7 +70,6 @@ const BurgerMenu = () => {
                 Home 
               </Link>
             </li>
-            p
             <li>
               <Link 
               href="https://dhg-freiburg.de/"
