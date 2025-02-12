@@ -1,6 +1,7 @@
 
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
+import useStoredNumber from '../hooks/useStoredNumber';
 
 const Nav = () => {
   return (
@@ -18,6 +19,7 @@ const Nav = () => {
     </div>
     <Link href="/quiz/1">
     <button className="font-poppins font-bold inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-8 font-medium text-neutral-50 shadow-lg shadow-neutral-500/20 transition active:scale-95 shadow-xl rounded-xl">Quiz</button>
+
     </Link>
     </div>
     </nav>

@@ -4,6 +4,7 @@ import {useState} from 'react'
 
 import Header from "@/components/Header";
 import {useRouter} from 'next/navigation'
+import {questions} from '@/components/questions'
 
 
 interface CheckboxProps {
@@ -52,7 +53,7 @@ const MultipleChoiceForm: React.FC<MultipleChoiceFormProps> = ({setAnswer}) => {
   return (
     <div className="mt-10">
       <form>
-        {["Stimme zu", "Stimme eher zu", "Neutral", "Stimmer eher nicht zu", "Stimme nicht zu"].map((label, index) => (
+        {["Stimme zu",  "Neutral", "Stimme nicht zu"].map((label, index) => (
           <Checkbox
             key={index}
             id={index}
@@ -80,26 +81,28 @@ const QuizQuestion : React.FC<QuizQuestionProps> = ({topic, question, idx, imgUr
 
   const router = useRouter();
   const processAnswer = () => {
-    if(answer == 0) {
-      addAnswer(2);
+    let numberToAdd;
+    if (answer === 0) {
+      numberToAdd = 1;
+    } else if (answer === 1) {
+      numberToAdd = 0;
+    } else if (answer === 2) {
+      numberToAdd = -1;
     }
-    else if(answer == 1) {
-      addAnswer(1);
+
+    if (numberToAdd !== undefined) {
+      addAnswer(numberToAdd);
     }
-    else if(answer == 3) {
-      addAnswer(-1);
-    }
-    else if(answer == 4) {
-      addAnswer(-2);
-    }
-    if(idx != 5)
+
+    console.log(answer);
+    if (idx !== questions.length) {
       router.push(`/quiz/${idx + 1}`);
-    else 
-      router.push(`/auswertung`);
+    } else {
+      router.push(`/overview`);
+    }
+  } 
 
-  }
-    console.log(answers);
-
+  console.log(answers);
 return (
   <div>
     <Header/>

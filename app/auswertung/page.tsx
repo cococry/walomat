@@ -9,12 +9,12 @@ const parties = [
   {
     name: "Freiheitspartei",
     description: "Setzt sich für individuelle Freiheit und starke nationale Sicherheit ein.",
-    answers: [2, 1, 1, 2, 1], 
+    answers: [1, 1, -1, -1, 1], 
   },
   {
     name: "Soziale Gerechtigkeit",
     description: "Fokussiert sich auf Gleichberechtigung und den Schutz von Schwachen in der Gesellschaft.",
-    answers: [-2, -1, 1, -2, 0],
+    answers: [-1, 1, 1, 1, 1],
   },
   {
     name: "Öko-Reformer",
@@ -24,7 +24,7 @@ const parties = [
   {
     name: "Wirtschaftsoptimierer",
     description: "Glaubt an einen freien Markt und die Förderung von wirtschaftlichem Wachstum durch unternehmerische Freiheit.",
-    answers: [1, 2, -1, 0, 2],
+    answers: [1, 1, -1, 0, 1],
   },
 ];
 
@@ -35,7 +35,7 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   for (let i = 0; i < totalQuestions; i++) {
     if (userAnswers[i] === partyAnswers[i]) {
       matchScore += 1;
-    } else if (userAnswers[i] === 0 || partyAnswers[i] === 0) {
+    } else if (userAnswers[i] == 0 || partyAnswers[i] == 0) {
       matchScore += 0.5; 
     }
   }
@@ -53,6 +53,7 @@ const ResultsPage: FC = () => {
   const [results, setResults] = useState<PartyResult[]>([]);
   const [counting, setCounting] = useState(false);
 
+  console.log(userAnswers);
   useEffect(() => {
     const partyResults = parties.map((party) => {
       const matchPercentage = calculateMatch(userAnswers, party.answers);
@@ -65,7 +66,7 @@ const ResultsPage: FC = () => {
 
     partyResults.sort((a, b) => b.matchPercentage - a.matchPercentage);
     setResults(partyResults);
-    setCounting(true); // Start counting animation when the page loads
+    setCounting(true); 
   }, [userAnswers]);
 
   return (
