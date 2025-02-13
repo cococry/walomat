@@ -9,23 +9,71 @@ const parties = [
   {
     name: "Freiheitspartei",
     description: "Setzt sich für individuelle Freiheit und starke nationale Sicherheit ein.",
-    answers: [1, 1, -1, -1, 1], 
+    answers: [
+      0, // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      -1, // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      -1, // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      0,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
   },
   {
     name: "Soziale Gerechtigkeit",
     description: "Fokussiert sich auf Gleichberechtigung und den Schutz von Schwachen in der Gesellschaft.",
-    answers: [-1, 1, 1, 1, 1],
+    answers: [
+      1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      1,  // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      1,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      0,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
   },
   {
     name: "Öko-Reformer",
     description: "Strebt nach einer nachhaltigen Zukunft mit Fokus auf Umweltschutz und Bildung.",
-    answers: [0, 1, 0, 1, -1],
+    answers: [
+      1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      0,  // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      0,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      0,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      0,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
   },
   {
     name: "Wirtschaftsoptimierer",
     description: "Glaubt an einen freien Markt und die Förderung von wirtschaftlichem Wachstum durch unternehmerische Freiheit.",
-    answers: [1, 1, -1, 0, 1],
-  },
+    answers: [
+      0,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      0,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
+  }
 ];
 
 const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number => {
@@ -33,14 +81,20 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   let matchScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    if (userAnswers[i] === partyAnswers[i]) {
+    if((userAnswers[i] == -2 && partyAnswers[i] == -1) || 
+       (userAnswers[i] == 2 && partyAnswers[i] == 1)) {
+      matchScore += 1.5;
+    } else if (userAnswers[i] === partyAnswers[i]) {
       matchScore += 1;
     } else if (userAnswers[i] == 0 || partyAnswers[i] == 0) {
       matchScore += 0.5; 
     }
   }
-
-  return (matchScore / totalQuestions) * 100;
+  
+  let ret = (matchScore / totalQuestions) * 100;
+  if(ret > 100) ret = 100;
+  if(ret < 0) ret = 0;
+  return ret;
 };
 
 interface PartyResult {

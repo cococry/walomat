@@ -4,9 +4,14 @@ import { questions } from '@/components/questions'
 import useStoredNumbers from "../../hooks/useStoredNumber";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { useState } from "react";
-import { Link } from 'next/navigation'
 
 
+interface CheckboxProps {
+  id: number; 
+  labelText: string;
+  isChecked: boolean;
+  onChange: (id: number) => void;
+}
 const Checkbox: React.FC<CheckboxProps> = ({
   id,
   labelText,
@@ -34,6 +39,7 @@ export default function QuestionAccordion() {
   const [checkedId, setCheckedId] = useState<number | null>(null);
 
   const [userAnswers, setUserAnswers] = useStoredNumbers([]);
+  console.log(userAnswers);
   const handleCheckboxChange = (id: number, q: number) => {
     setCheckedId(id);
     let val = 0;
@@ -49,8 +55,18 @@ export default function QuestionAccordion() {
       updatedAnswers[q] = val;  
       return updatedAnswers;  
     });
-
   };
+
+  const handleDoubleWeight = (q: number) => {
+    setUserAnswers(prevAnswers => {
+      const updatedAnswers = [...prevAnswers]; 
+      if(updatedAnswers[q] == -1 || updatedAnswers[q] == 1)
+        updatedAnswers[q] *= 2;
+      else if(updatedAnswers[q] == -2 || updatedAnswers[q] == 2)
+        updatedAnswers[q] /= 2;
+      return updatedAnswers;  
+    });
+  }
 
 
   const handleAccordionChange = (value: string) => {
@@ -85,9 +101,6 @@ export default function QuestionAccordion() {
     <div className="min-h-screen flex md:items-center md:justify-center">
     <div
     className="bg-white p-6 max-w-2xl w-full"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 0.6 }}
     >
     <h1 className="text-4xl font-semibold font-poppins mb-4 text-center md:text-left">Deine Antworten</h1>
     {userAnswers.length >= questions.length && (
@@ -113,6 +126,9 @@ export default function QuestionAccordion() {
                   />
                 ))}
               </form>
+              <button onClick={() => handleDoubleWeight(index)} 
+              className=
+                {`${userAnswers[index] == -2 || userAnswers[index] == 2 ? "bg-black text-white" : "bg-transparent text-black"} font-inter px-4 py-[10px] mt-5 border-black border-[2px] font-bold transition-colors duration-300 ease-in-out`}>Doppelt gewichten</button>
             </div>
           </AccordionContent>
         </AccordionItem>

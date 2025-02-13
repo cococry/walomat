@@ -6,7 +6,7 @@ import useStoredNumber from '../hooks/useStoredNumber';
 import {useRouter} from 'next/navigation'
 
 export default function Home() {
-  const [, , removeStoredNumber] = useStoredNumber([]); 
+  const [, , , removeStoredNumber] = useStoredNumber([]); 
 
   const router = useRouter();
 

@@ -13,10 +13,10 @@ const useStoredNumbers = (initialValue: number[]) => {
       const storedNumbers = localStorage.getItem('numbers');
       if (storedNumbers) {
         try {
-          setNumbers(JSON.parse(storedNumbers) || []); // Default to empty array if parsing fails
+          setNumbers(JSON.parse(storedNumbers) || []);
         } catch (e) {
           console.error('Error parsing stored numbers', e);
-          setNumbers([]); // Fallback to an empty array if parsing fails
+          setNumbers([]);
         }
       }
     }
@@ -29,13 +29,7 @@ const useStoredNumbers = (initialValue: number[]) => {
   }, [numbers, isClient]);
 
   const addNumber = (newNumber: number) => {
-    setNumbers(prevNumbers => {
-      if (Array.isArray(prevNumbers)) {
-        return [...prevNumbers, newNumber];
-      }
-      console.error('Previous numbers is not an array');
-      return [newNumber]; // Fallback in case of error
-    });
+    setNumbers(prevNumbers => [...prevNumbers, newNumber]);
   };
 
   const resetStoredNumbers = () => {
@@ -45,7 +39,7 @@ const useStoredNumbers = (initialValue: number[]) => {
     }
   };
 
-  return [numbers, addNumber, resetStoredNumbers] as const;
+  return [numbers, setNumbers, addNumber, resetStoredNumbers] as const;
 };
 
 export default useStoredNumbers;
