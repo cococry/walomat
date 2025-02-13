@@ -81,9 +81,9 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   let matchScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    if((userAnswers[i] == -2 && partyAnswers[i] == -1) || 
-       (userAnswers[i] == 2 && partyAnswers[i] == 1)) {
-      matchScore += 1.5;
+    if((userAnswers[i] == -2 && partyAnswers[i] == -2) || 
+       (userAnswers[i] == 2 && partyAnswers[i] == 2)) {
+      matchScore += 2;
     } else if (userAnswers[i] === partyAnswers[i]) {
       matchScore += 1;
     } else if (userAnswers[i] == 0 || partyAnswers[i] == 0) {
