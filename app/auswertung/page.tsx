@@ -11,15 +11,15 @@ const parties = [
     description: "Setzt sich für individuelle Freiheit und starke nationale Sicherheit ein.",
     answers: [
       0, // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
-      -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      -2, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
       -1, // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
       0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
       -1, // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
-      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      -2, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
       0,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
       -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
-      1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
-      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      2,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      2,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
       1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
     ]
   },
@@ -79,22 +79,23 @@ const parties = [
 const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number => {
   const totalQuestions = userAnswers.length;
   let matchScore = 0;
+  let maxScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    if((userAnswers[i] == -2 && partyAnswers[i] == -2) || 
-       (userAnswers[i] == 2 && partyAnswers[i] == 2)) {
-      matchScore += 2;
-    } else if (userAnswers[i] === partyAnswers[i]) {
-      matchScore += 1;
-    } else if (userAnswers[i] == 0 || partyAnswers[i] == 0) {
-      matchScore += 0.5; 
+    const userWeight = Math.abs(userAnswers[i]) === 2 ? 2 : 1;
+    const partyWeight = Math.abs(partyAnswers[i]) === 2 ? 2 : 1;
+    const weight = Math.max(userWeight, partyWeight); 
+    maxScore += weight; 
+
+    if (userAnswers[i] === partyAnswers[i]) {
+      matchScore += weight;
+    } else if (userAnswers[i] === 0 || partyAnswers[i] === 0) {
+      matchScore += weight * 0.5;
     }
   }
-  
-  let ret = (matchScore / totalQuestions) * 100;
-  if(ret > 100) ret = 100;
-  if(ret < 0) ret = 0;
-  return ret;
+
+  let ret = (matchScore / maxScore) * 100;
+  return Math.min(100, Math.max(0, ret));
 };
 
 interface PartyResult {
