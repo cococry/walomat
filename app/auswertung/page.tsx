@@ -94,7 +94,7 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
     }
   }
 
-  let ret = (matchScore / maxScore) * 100;
+  const ret = (matchScore / maxScore) * 100;
   return Math.min(100, Math.max(0, ret));
 };
 
