@@ -82,20 +82,26 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   let maxScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    const userWeight = Math.abs(userAnswers[i]) === 2 ? 2 : 1;
-    const partyWeight = Math.abs(partyAnswers[i]) === 2 ? 2 : 1;
-    const weight = Math.max(userWeight, partyWeight); 
-    maxScore += weight; 
+    const userResponse = userAnswers[i];
+    const partyResponse = partyAnswers[i];
 
-    if (userAnswers[i] === partyAnswers[i]) {
-      matchScore += weight;
-    } else if (userAnswers[i] === 0 || partyAnswers[i] === 0) {
-      matchScore += weight * 0.5;
+    const userWeight = Math.abs(userResponse) === 2 ? 2 : 1;
+    const partyWeight = Math.abs(partyResponse) === 2 ? 2 : 1;
+    const weight = userWeight + partyWeight - 1;
+
+    maxScore += weight;
+
+    if (userResponse === partyResponse) {
+      matchScore += weight; 
+    } else if (userResponse === 0 || partyResponse === 0) {
+      matchScore += weight * 0.5; 
+    } else {
+      matchScore += 0; 
     }
   }
 
-  const ret = (matchScore / maxScore) * 100;
-  return Math.min(100, Math.max(0, ret));
+  // Ergebnis in Prozent umwandeln
+  return (matchScore / maxScore) * 100;
 };
 
 interface PartyResult {
