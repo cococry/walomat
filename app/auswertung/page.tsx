@@ -82,21 +82,29 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   let maxScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    const userResponse = userAnswers[i];
-    const partyResponse = partyAnswers[i];
+    let userResponse = userAnswers[i];
+    let partyResponse = partyAnswers[i];
 
     const userWeight = Math.abs(userResponse) === 2 ? 2 : 1;
     const partyWeight = Math.abs(partyResponse) === 2 ? 2 : 1;
-    const weight = userWeight + partyWeight - 1;
+    if(userResponse == -2) {
+      userResponse = -1;
+    } else if(userResponse == 2) {
+      userResponse = 1;
+    }
+    if(partyResponse == -2) {
+      partyResponse = -1;
+    } else if(partyResponse == 2) {
+      partyResponse = 1;
+    }
 
-    maxScore += weight;
+    maxScore += partyWeight;
 
     if (userResponse === partyResponse) {
-      matchScore += weight; 
+      matchScore += userWeight; 
     } else if (userResponse === 0 || partyResponse === 0) {
-      matchScore += weight * 0.5; 
-    } else {
-      matchScore += 0; 
+      matchScore += 0.5; 
+      console.log("triggered.\n");
     }
   }
 
