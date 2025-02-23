@@ -109,6 +109,8 @@ return (
     <Header/>
   <main className="flex flex-col md:min-h-screen justify-start md:justify-center items-start md:items-center">
   <div className="p-10">
+
+  <p className="mt-5 mb-5  font-inter font-semibold">Sponsored by <a href="https://twrdroste.de" className=" font-playfair text-orange-600 font-bold">TWR</a></p>
   <img className="w-[512px] mb-10 shadow-lg rounded-xl" src={imgUrl}/>
   <div className="max-w-lg">
   <h1 className="font-bold font-poppins xl:text-[50px]">Frage {idx}</h1>
