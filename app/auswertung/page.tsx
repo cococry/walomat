@@ -107,8 +107,6 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
       console.log("triggered.\n");
     }
   }
-
-  // Ergebnis in Prozent umwandeln
   return (matchScore / maxScore) * 100;
 };
 
