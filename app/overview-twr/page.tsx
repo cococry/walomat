@@ -32,7 +32,7 @@ export default function QuestionAccordion() {
       <div className="font-inter min-h-screen flex md:items-center md:justify-center">
         <div className="bg-white p-6 max-w-2xl w-full">
           <h1 className="text-4xl font-semibold font-poppins mb-4 text-center md:text-left">
-            TWR's Antworten 
+            TWRs Antworten 
           </h1>
           <Accordion type="single" collapsible>
             {questions.map((q, index) => (

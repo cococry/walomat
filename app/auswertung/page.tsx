@@ -155,6 +155,7 @@ interface PartyResult {
   name: string;
   desc: string;
   matchPercentage: number;
+  overview: string;
 }
 const ResultsPage: FC = () => {
   const [userAnswers] = useStoredNumbers([]);
