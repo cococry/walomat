@@ -7,69 +7,110 @@ import CountUp from 'react-countup';
 
 const parties = [
   {
-    name: "Freiheitspartei",
-    description: "Setzt sich für individuelle Freiheit und starke nationale Sicherheit ein.",
+    name: "Red Corner Partei (RCP)",
+    overview: "/overview-rcp",
+    description: "Quadratisch, praktisch, gut!",
     answers: [
-      0, // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
-      -2, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
-      -1, // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
-      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
-      -1, // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
-      -2, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      1, // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      0, // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      1, // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
       0,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
       -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
-      2,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
-      2,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+    -1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
+  },
+  {
+    name: "Liberale Partei Drostaniens (LPD)",
+    overview: "/overview-lpd",
+    description: "Für ein starkes Drostanien: LPD!",
+    answers: [
+      0,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      1,  // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      -1,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      1,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      -1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
       1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
     ]
   },
   {
-    name: "Soziale Gerechtigkeit",
-    description: "Fokussiert sich auf Gleichberechtigung und den Schutz von Schwachen in der Gesellschaft.",
+    name: "Demokratische Volkspartei Drostaniens (DVD)",
+    description: "Deine linke Stimme im Parlament",
+    overview: "/overview-dvd",
     answers: [
       1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
       1,  // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
-      0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
-      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
-      1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      -1,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      -1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
       1,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
       1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
       1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
-      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
-      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
-      0,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+      -1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      -1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      -1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
     ]
   },
   {
-    name: "Öko-Reformer",
-    description: "Strebt nach einer nachhaltigen Zukunft mit Fokus auf Umweltschutz und Bildung.",
+    name: "Sozial empanzipiertes Droste (SD)",
+    description: "Frei kämpfen, frei sein!",
+    overview: "/overview-sd",
     answers: [
       1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
-      0,  // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
       0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
       1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
-      0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
-      0,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
-      1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
-      1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
-      0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      -1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      -1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
       0,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
-      0,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+      -1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
     ]
   },
   {
-    name: "Wirtschaftsoptimierer",
-    description: "Glaubt an einen freien Markt und die Förderung von wirtschaftlichem Wachstum durch unternehmerische Freiheit.",
+    name: "Kulturelle Wirtschafts Partei (KWP)",
+    description: "Wachstum und Zuversicht",
+    overview: "/overview-kwp",
     answers: [
-      0,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
       -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
-      0,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
-      0,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
-      0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
-      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
-      0,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      -1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
       -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
       0,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
+      1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
+      1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
+    ]
+  },
+  {
+    name: "Traditionelle wirtschafts Reform(TWR)",
+    description: "Ohne Fleiß kein Preis",
+
+    overview: "/overview-twr",
+    answers: [
+      1,  // Kultur: Brauchen kulturelle Veranstaltungen eine Unterstützung vom Staat?
+      -1, // Marktwirtschaft (Steuern): Soll es Steuern oder Standgebühren geben?
+      1,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
+      1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
+      1,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
+      -1, // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+      -1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
+      -1, // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
+      1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
       1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
       1,  // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
     ]
@@ -125,6 +166,7 @@ const ResultsPage: FC = () => {
     const partyResults = parties.map((party) => {
       const matchPercentage = calculateMatch(userAnswers, party.answers);
       return {
+        overview: party.overview,
         name: party.name,
         desc: party.description,
         matchPercentage,
@@ -191,14 +233,21 @@ const ResultsPage: FC = () => {
                   {results.map((result, index) => (
                     <motion.li
                       key={index}
-                      className="flex justify-between items-center"
+                      className=""
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                     >
+                    <div className="flex justify-between items-center">
                       <span>{result.name}</span>
                       <span>{result.matchPercentage.toFixed(2)}%</span>
-                    </motion.li>
+                      </div>
+                      <a href={result.overview}>
+                      <button className="border-[1px] text-black border-neutral-600 font-bold p-3 rounded-full mt-5">
+                      Antworten der Partei 
+                      </button>
+                      </a>
+                      </motion.li>
                   ))}
                 </ul>
               </div>
