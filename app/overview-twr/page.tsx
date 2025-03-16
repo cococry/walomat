@@ -18,6 +18,22 @@ const answers =  [
 
 ];
 
+const answersStr  =  [
+  "Keine Erläuterung.",
+  "Keine Standgebühren, keine Steuer für einzelne Personen. Unternehmen müssen die gesamten Umsatz versteuern.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "In dem Fall kriegen Schüler Jobangebote vorgeschlagen, müssen jedoch keine Drecksarbeit erledigen.",
+  "Es ist nicht verpflichtend, wird jedoch vom Staat gefördert.",
+  
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung."
+]
+
 
 const answerLabels = {
   2: "TWR stimmt doppelt zu",
@@ -41,9 +57,13 @@ export default function QuestionAccordion() {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{q.question}</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-lg font-inter mt-4">
+                  <h5 className="font-bold text-lg font-inter mt-4">
                     {answerLabels[answers[index] as keyof typeof answerLabels]}
+                  </h5>
+                  <p>
+                  {answersStr[index]}
                   </p>
+
                 </AccordionContent>
               </AccordionItem>
             ))}

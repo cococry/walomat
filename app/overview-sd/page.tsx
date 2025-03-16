@@ -19,6 +19,20 @@ const answers =  [
 
 ];
 
+const answersStr  =  [
+  "Die freie Entfaltung des Menschen in der Kunst sollte gefördert werden.",
+  "Nein, freies Wirtschaften.",
+
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Nein, sie soll abgeschafft werden.",
+  "Nein, das ist ein Eingriff in die Freiheit.",
+  "Nein, solange es nicht anderen Schülern schadet.",
+  "Nein, Freiheit als höchstes Ziel.",
+  "Schutz der Freiheit vs. Staats soll nicht zu viel Macht über Bürger haben.",
+  "Nein, wir wollen weg von einem Kontrollstaat."
+];
 
 const answerLabels = {
   2: "SD stimmt doppelt zu",
@@ -42,8 +56,11 @@ export default function QuestionAccordion() {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{q.question}</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-lg font-inter mt-4">
+                  <h5 className="font-bold text-lg font-inter mt-4">
                     {answerLabels[answers[index] as keyof typeof answerLabels]}
+                  </h5>
+                  <p>
+                  {answersStr[index]}
                   </p>
                 </AccordionContent>
               </AccordionItem>

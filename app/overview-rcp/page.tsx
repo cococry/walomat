@@ -16,6 +16,20 @@ const answers = [
   1,  // Sicherheit (starke Polizei): Brauchen wir eine starke Polizei?
   -1, // Sicherheit (Anwesenheitskontrollen): Brauchen wir Anwesenheitskontrollen an unseren Grenzen?
 ];
+const answersStr  =  [
+  "Unsere Staatsbürger müssen bei Laune bleiben und deshalb ist Unterstützung wichtig.",
+  "Unsere Staatsbürger müssen bei Laune bleiben und deshalb ist Unterstützung wichtig. ",
+  "Es sollte Steuern geben, aber nicht überall, hauptsächlich bei Firmen. Keine Einkommensteuer.",
+  "Bürger/innen sollen für ihre gute Arbeit belohnt werden.",
+  "Auf jeden Fall. Es wäre unfair, wenn nicht ",
+  "Sozialstunden sind fair und helfen unbeliebte Arbeitsplätze zu füllen.",
+  "Wäre gut wenn ja aber ist schwer zu kontrollieren.",
+  "Es sollte jedoch eine ein wichtiges Ziel sein.",
+  "Die Grenzen sollen sicher sein, aber die Polizei sollte dadurch nicht überfordert werden.",
+  "Wir müssen die Sicherheit der Bürger/innen absichern.",
+  "Wir sind nicht mehr in der DDR."
+];
+
 
 const answerLabels = {
   2: "RCP stimmt doppelt zu",
@@ -39,9 +53,13 @@ export default function QuestionAccordion() {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{q.question}</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-lg font-inter mt-4">
+                  <h5 className="font-bold text-lg font-inter mt-4">
                     {answerLabels[answers[index] as keyof typeof answerLabels]}
+                  </h5>
+                  <p>
+                  {answersStr[index]}
                   </p>
+
                 </AccordionContent>
               </AccordionItem>
             ))}

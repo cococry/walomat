@@ -26,6 +26,21 @@ const answerLabels = {
   [-2]: "KWP stimmt doppelt nicht zu",
 };
 
+const answersStr  =  [
+  "Keine Erläuterung.",
+  "Nein, Kredit mit Zinsen.",
+  "Alle gleich aus kulturelle Unternehmen.",
+  "Alles soll in Euro wieder umtauschbar sein.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+  "Keine Erläuterung.",
+
+];
+
 export default function QuestionAccordion() {
   return (
     <div>
@@ -40,9 +55,14 @@ export default function QuestionAccordion() {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger>{q.question}</AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-lg font-inter mt-4">
+                  <h5 className="font-bold text-lg font-inter mt-4">
                     {answerLabels[answers[index] as keyof typeof answerLabels]}
+                  </h5>
+                  <p>
+                  {answersStr[index]}
                   </p>
+
+
                 </AccordionContent>
               </AccordionItem>
             ))}
