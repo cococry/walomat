@@ -19,9 +19,11 @@ const answers =  [
 
 
 const answerLabels = {
+  2: "KWP stimmt doppelt zu",
   1: "KWP stimmt zu",
   0: "KWP sagt neutral",
   [-1]: "KWP stimmt nicht zu",
+  [-2]: "KWP stimmt doppelt nicht zu",
 };
 
 export default function QuestionAccordion() {

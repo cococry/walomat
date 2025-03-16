@@ -9,7 +9,7 @@ const answers =  [
   -1,  // Marktwirtschaft (gleiche Steuern): Sollen alle Unternehmen die gleichen Steuern zahlen?
   1,  // Marktwirtschaft (Gewinnumwandlung): Soll ein Teil des Gewinns der Unternehmen wieder in Euro umgetauscht werden?
   0,  // Marktwirtschaft (Arbeitspflicht): Soll die Arbeitspflicht kontrolliert werden?
-  1,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
+  2,  // Marktwirtschaft (unmotivierte Schüler): Sollten unmotivierte Schüler vom Staat zu gemeinnützigen Tätigkeiten gezwungen werden?
   -1,  // Nachhaltigkeit (Unternehmen): Sollten Unternehmen verpflichtet werden, nachhaltig zu produzieren?
   -1,  // Nachhaltigkeit (höchstes Ziel): Sollte Nachhaltigkeit unser höchstes Ziel sein?
   1,  // Sicherheit (gesicherte Grenzen): Brauchen wir gesicherte Grenzen?
@@ -20,9 +20,11 @@ const answers =  [
 
 
 const answerLabels = {
+  2: "LPD stimmt doppelt zu",
   1: "LPD stimmt zu",
   0: "LPD sagt neutral",
   [-1]: "LPD stimmt nicht zu",
+  [-2]: "LPD stimmt doppelt nicht zu",
 };
 
 export default function QuestionAccordion() {

@@ -19,9 +19,11 @@ const answers =  [
 
 
 const answerLabels = {
+  2: "DVD stimmt doppelt zu",
   1: "DVD stimmt zu",
   0: "DVD sagt neutral",
   [-1]: "DVD stimmt nicht zu",
+  [-2]: "DVD stimmt doppelt nicht zu",
 };
 
 export default function QuestionAccordion() {

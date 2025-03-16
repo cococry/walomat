@@ -18,9 +18,11 @@ const answers = [
 ];
 
 const answerLabels = {
+  2: "RCP stimmt doppelt zu",
   1: "RCP stimmt zu",
   0: "RCP sagt neutral",
   [-1]: "RCP stimmt nicht zu",
+  [-2]: "RCP stimmt doppelt nicht zu",
 };
 
 export default function QuestionAccordion() {

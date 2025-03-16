@@ -20,9 +20,11 @@ const answers =  [
 
 
 const answerLabels = {
+  2: "TWR stimmt doppelt zu",
   1: "TWR stimmt zu",
   0: "TWR sagt neutral",
   [-1]: "TWR stimmt nicht zu",
+  [-2]: "TWR stimmt doppelt nicht zu",
 };
 
 export default function QuestionAccordion() {
