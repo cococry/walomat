@@ -126,28 +126,39 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
     let userResponse = userAnswers[i];
     let partyResponse = partyAnswers[i];
 
-    const userWeight = Math.abs(userResponse) === 2 ? 2 : 1;
+    // Standardgewichtung für den Nutzer ist immer 1
+    const userWeight = 1;
+
+    // Doppelte Gewichtung der Partei, wenn die Antwort auf "ja" oder "nein" (-2 oder 2) lautet
     const partyWeight = Math.abs(partyResponse) === 2 ? 2 : 1;
-    if(userResponse == -2) {
+
+    // Umwandlung der Antworten von 2 und -2 auf 1 und -1
+    if (userResponse == -2) {
       userResponse = -1;
-    } else if(userResponse == 2) {
+    } else if (userResponse == 2) {
       userResponse = 1;
     }
-    if(partyResponse == -2) {
+    if (partyResponse == -2) {
       partyResponse = -1;
-    } else if(partyResponse == 2) {
+    } else if (partyResponse == 2) {
       partyResponse = 1;
     }
 
-    maxScore += partyWeight;
+    maxScore += partyWeight; // Maximaler Wert hängt von der Gewichtung der Partei ab
 
     if (userResponse === partyResponse) {
-      matchScore += userWeight; 
+      // Der Nutzer bekommt für jede Übereinstimmung 1 Punkt, die Partei bekommt ihre gewichteten Punkte
+      matchScore += userWeight;
+      if (partyResponse === userResponse) {
+        matchScore += partyWeight - userWeight; // Extra Punkt für die Partei im Falle der doppelten Gewichtung
+      }
     } else if (userResponse === 0 || partyResponse === 0) {
+      // Wenn einer der beiden auf "neutral" steht (0), bekommt der Nutzer trotzdem 0,5 Punkte
       matchScore += 0.5; 
     }
   }
-  return (matchScore / maxScore) * 100;
+
+  return (matchScore / maxScore) * 100; // Prozentsatz der Übereinstimmung
 };
 
 interface PartyResult {
