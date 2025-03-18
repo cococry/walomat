@@ -22,15 +22,14 @@ const answers =  [
 const answersStr  =  [
   "Die freie Entfaltung des Menschen in der Kunst sollte gefördert werden.",
   "Nein, freies Wirtschaften.",
-
   "Keine Erläuterung.",
   "Keine Erläuterung.",
-  "Keine Erläuterung.",
-  "Nein, sie soll abgeschafft werden.",
-  "Nein, das ist ein Eingriff in die Freiheit.",
-  "Nein, solange es nicht anderen Schülern schadet.",
-  "Nein, Freiheit als höchstes Ziel.",
-  "Schutz der Freiheit vs. Staats soll nicht zu viel Macht über Bürger haben.",
+  "Nein, sie soll abgeschafft werden",
+  "Nein, das ist ein Eingriff in die Zukunft.",
+  "Nur wenn sie der Allgemeinheit schaden (z.B Verschmutzung des Schulhauses)",
+  "Freiheit ist unser hoechstes Ziel.",
+  "Ja, zum Schutz unser Buerger.",
+  "Keine Erlaeuterung.",
   "Nein, wir wollen weg von einem Kontrollstaat."
 ];
 
