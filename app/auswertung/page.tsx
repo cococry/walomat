@@ -123,34 +123,34 @@ const calculateMatch = (userAnswers: number[], partyAnswers: number[]): number =
   let maxScore = 0;
 
   for (let i = 0; i < totalQuestions; i++) {
-    const userResponse = userAnswers[i];
-    const partyResponse = partyAnswers[i];
-
-    const userWeighted = Math.abs(userResponse) === 2;
-    const partyWeighted = Math.abs(partyResponse) === 2;
-
-    const userVal = userResponse === 2 ? 1 : userResponse === -2 ? -1 : userResponse;
-    const partyVal = partyResponse === 2 ? 1 : partyResponse === -2 ? -1 : partyResponse;
-
-    const currentMax = 1 + (partyWeighted ? 1 : 0) + (userWeighted ? 1 : 0);
-    maxScore += currentMax;
-
-    if (userVal === partyVal) {
-      if (userWeighted && partyWeighted) {
-        matchScore += 3;
-      } else if (userWeighted) {
-        matchScore += 2;
-      } else {
-        matchScore += 1 + (partyWeighted ? 1 : 0);
-      }
+    let userResponse = userAnswers[i];
+    let partyResponse = partyAnswers[i];
+    const userWeight = 1;
+    const partyWeight = Math.abs(partyResponse) === 2 ? 2 : 1;
+    if (userResponse == -2) {
+      userResponse = -1;
+    } else if (userResponse == 2) {
+      userResponse = 1;
     }
-    if(userResponse == 0 && userResponse !== partyResponse) {
-      matchScore += 0.5;
+    if (partyResponse == -2) {
+      partyResponse = -1;
+    } else if (partyResponse == 2) {
+      partyResponse = 1;
+    }
+
+    maxScore += partyWeight; 
+    if (userResponse === partyResponse) {
+      matchScore += userWeight;
+      if (partyResponse === userResponse) {
+        matchScore += partyWeight - userWeight; }
+    } else if (userResponse === 0 || partyResponse === 0) {
+      matchScore += 0.5; 
     }
   }
 
-  return (matchScore / maxScore) * 100;
+  return (matchScore / maxScore) * 100; // Prozentsatz der Übereinstimmung
 };
+
 interface PartyResult {
   name: string;
   desc: string;
